@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoodie Customizer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header-container">
+    <h1>🌸 Dreamy Design Studio <br>Customize Your Hoodie! 👕</h1>
+</header>
+
+<section class="marquee-container">
+    <marquee>✨ Turn Your Ideas Into Outfit Goals ✨</marquee>
+</section>
+
+<section class="designer-controls-wrapper">
+
+    <!-- Hoodie Preview -->
+    <div class="designer-container">
+        <svg id="tshirtSVG" width="260" height="420" viewBox="0 0 260 420">
+            <defs>
+                <clipPath id="hoodieClip">
+                    <rect x="70" y="100" width="120" height="240" rx="40"/>
+                </clipPath>
+            </defs>
+
+            <!-- Pullover Hoodie -->
+            <g id="pulloverHoodie">
+                <path id="pulloverHood" d="M80 90 Q130 10 180 90 L160 110 Q130 70 100 110 Z" fill="black"/>
+                <rect id="pulloverBody" x="70" y="100" width="120" height="240" rx="40" fill="black"/>
+                <path id="leftSleeve" d="M70 120 L30 180 L70 200 Z" fill="black"/>
+                <path id="rightSleeve" d="M190 120 L230 180 L190 200 Z" fill="black"/>
+            </g>
+
+            <!-- Zipper Hoodie -->
+            <g id="zipperHoodie" style="display:none;">
+                <path id="zipperHood" d="M80 90 Q130 10 180 90 L160 110 Q130 70 100 110 Z" fill="black"/>
+                <rect id="zipperBody" x="70" y="100" width="120" height="240" rx="40" fill="black"/>
+                <path id="zipperLine" d="M130 100 L130 340" stroke="white" stroke-width="3"/>
+                <path id="leftSleeveZ" d="M70 120 L30 180 L70 200 Z" fill="black"/>
+                <path id="rightSleeveZ" d="M190 120 L230 180 L190 200 Z" fill="black"/>
+            </g>
+
+            <!-- Shared elements -->
+            <path d="M105 260 Q130 240 155 260 L150 300 L110 300 Z" fill="#222"/>
+            <line x1="120" y1="110" x2="120" y2="150" stroke="white" stroke-width="3"/>
+            <line x1="140" y1="110" x2="140" y2="150" stroke="white" stroke-width="3"/>
+
+            <!-- Uploaded image -->
+            <image id="svgImage" clip-path="url(#hoodieClip)" x="70" y="100" width="120" height="240" preserveAspectRatio="xMidYMid meet"></image>
+
+            <!-- Text -->
+            <text id="svgText" x="130" y="180" text-anchor="middle" fill="white" font-size="22" font-family="Arial">Your Text</text>
+        </svg>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-container">
+        <div class="controls">
+            <label>Hoodie Type:</label><br>
+            <input type="radio" id="pullover" name="dressType" value="Pullover" checked>
+            <label for="pullover">Pullover</label>
+            <input type="radio" id="zipper" name="dressType" value="Zipper">
+            <label for="zipper">Zipper</label><br><br>
+
+            <label for="quantitySelect">Quantity:</label>
+            <select id="quantitySelect">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <label for="sizeSelect">Size:</label>
+            <select id="sizeSelect">
+                <option value="">Choose Size</option>
+                <option value="26">26</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+                <option value="32">32</option>
+            </select>
+
+            <label>Hoodie Color:</label>
+            <input type="color" id="colorPicker">
+
+            <label>Add Text:</label>
+            <input type="text" id="textInput" placeholder="Enter text">
+
+            <label>Font:</label>
+            <select id="fontSelect">
+                <option value="Arial">Arial</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Courier">Courier</option>
+            </select>
+
+            <label>Text Size:</label>
+            <input type="range" id="textSize" min="10" max="40" value="22">
+
+            <label>Upload Image:</label>
+            <input type="file" id="imageUpload">
+
+            <h3>Price: ₹<span id="price">500</span></h3>
+
+            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="downloadDesign()">Download Design</button>
+        </div>
+    </div>
+</section>
+
+<!-- Cart -->
+<section class="cart-container">
+    <h2>🛒 Cart</h2>
+    <ul id="cartList"></ul>
+
+    <h3>Total: ₹<span id="total">0</span></h3>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        🛒 Item added to cart successfully!
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+body {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    background: #c2d9e9;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container h1 {
+    margin: 20px 0;
+    font-size: 40px;
+}
+
+.marquee-container {
+    margin: 20px 0;
+}
+.marquee-container marquee {
+    font-size: 22px;
+    animation: scroll 10s linear infinite;
+}
+@keyframes scroll {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+.designer-controls-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+.designer-container {
+    background: #ad90ac;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(10,10,10,0.1);
+}
+
+.controls-container {
+    background: #ad90ac;
+    padding: 40px;
+    border-radius: 20px;
+    min-width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.controls-container input,
+.controls-container select,
+.controls-container input[type="range"] {
+    padding: 5px;
+    border-radius: 6px;
+    border: 2px solid #cd6161;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.controls-container button {
+    padding: 10px;
+    background: rgb(194, 41, 89);
+    color: rgb(27,28,27);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 5px 0;
+    transition: transform 0.2s ease;
+}
+.controls-container button:hover {
+    transform: scale(1.05);
+    background: #1a8a6e;
+}
+
+/* CART SECTION */
+.cart-container {
+    background: #fff;
+    padding: 20px;
+    margin: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* POPUP MESSAGE */
+.popup {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #28a745;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+    z-index: 1000;
+}
+
+/* When popup is active */
+.popup.show {
+    opacity: 1;
+    transform: translateY(0);
+}
